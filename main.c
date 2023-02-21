@@ -29,14 +29,14 @@ int main(int argc, char* argv[]){
     char *buffer = NULL;
     TArbre* dico=NULL;
     TArbre* dicoCopy=NULL;
-    
     do
     {
         printf("\n \n");
         system("setterm -bold on");
         printf(GREEN "\t\t ---------------- Menu --------------------\n \n");
-        printf(CYAN "\t\t      1- Consulter la simulation            \n");
-        printf(CYAN "\t\t     2- Consulter le dictionnaire          \n \n");
+        printf(CYAN "\t\t     1- Consulter la simulation            \n");
+        printf(CYAN "\t\t     2- Consulter le dictionnaire          \n");
+        printf(CYAN "\t\t     3- Vider le dictionnaire          \n \n");
         printf(GREEN "\t\t ------------------------------------------\n \n");
         system("setterm -bold off");
         system("setterm -bold on");
@@ -44,7 +44,12 @@ int main(int argc, char* argv[]){
         system("setterm -bold off");
         scanf("%d",&rep);
       
-    } while (rep!=1 && rep !=2);
+    } while (rep!=1 && rep!=2  && rep!=3);
+
+    if (rep==3) {
+        fclose(fopen("dico.txt", "w"));   
+        return 0;
+    }
 
     system("setterm -bold on");
     printf("\t  Combien de mot à piocher ? : ");
